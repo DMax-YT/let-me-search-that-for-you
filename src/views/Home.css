@@ -1,0 +1,135 @@
+*,
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+#logo {
+  display: block;
+  margin: 60px auto;
+  text-align: center;
+  font-size: 2.5em;
+}
+
+#search-input {
+  width: 500px;
+  font-size: 1.2em;
+  line-height: 1.5em;
+
+  border: 2px #ccc solid;
+  border-radius: 15px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+
+  margin: 0 auto;
+  padding: 5px;
+  padding-left: 15px;
+}
+
+#search-input:hover,
+#search-input:focus {
+  box-shadow: 0 0 6px #aaa;
+}
+
+#search-button:hover {
+  box-shadow: 0 0 2px #aaa;
+}
+
+#search-input:focus {
+  outline: none;
+}
+
+#search-button {
+  width: 150px;
+  font-size: 1.2em;
+  line-height: 1.5em;
+  padding: 5px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border: 2px #ccc solid;
+  background-color: rgba(1, 1, 1, 0.1);
+}
+
+#search-button:hover {
+  background-color: rgba(1, 1, 1, 0.2);
+}
+
+#search-button:focus {
+  outline: none;
+}
+
+#search-button:active {
+  background-color: rgba(1, 1, 1, 0.3);
+}
+
+#search-form {
+  margin-bottom: 15px;
+}
+
+.center {
+  text-align: center;
+}
+
+#search-engines {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: row;
+}
+
+.search-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 25px;
+  background: none;
+  margin: 0 30px;
+  width: 170px;
+  height: 130px;
+  padding: 15px;
+}
+
+.search-panel:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.search-panel:active {
+  border: 2px #ccc solid;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.search-panel img {
+  display: inline-block;
+  width: 150px;
+  max-height: 100px;
+}
+
+footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 5px;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(34, 155, 255);
+}
+
+a:visited {
+  color: rgb(34, 155, 255);
+}
+
+a:hover {
+  text-decoration: underline;
+}
