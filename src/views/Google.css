@@ -1,0 +1,80 @@
+*,
+html,
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#search {
+  text-align: center;
+}
+
+#logo {
+  margin-top: 60px;
+  margin-bottom: 26px;
+}
+
+#logo img {
+  max-height: 92px;
+}
+
+#search-form {
+  height: 44px;
+  width: 584px;
+  display: flex;
+  background: #fff;
+  border: 1px solid #dfe1e5;
+  border-radius: 24px;
+  box-shadow: none;
+  margin: 0 auto;
+}
+
+#search-form svg {
+  position: relative;
+  display: inline-block;
+  height: 44px;
+  width: 20px;
+  margin: auto 14px;
+  color: #9aa0a6;
+  fill: currentColor;
+}
+
+#search-form input {
+  height: auto;
+  width: 522px;
+  color: #202124;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  word-wrap: break-word;
+  background-color: transparent;
+}
+
+.search-button {
+  background-color: #f8f9fa;
+  border: 1px solid #f8f9fa;
+  border-radius: 4px;
+  color: #3c4043;
+  font-size: 14px;
+  margin: 11px 4px;
+  padding: 0 16px;
+  line-height: 27px;
+  height: 36px;
+  min-width: 54px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.search-button:hover {
+  box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
+  background-color: #f8f9fa;
+  border: 1px solid #dadce0;
+  color: #202124;
+}
+
+.search-button:focus {
+  border: 1px solid #4285f4;
+  outline: none;
+}
