@@ -29,6 +29,7 @@
 
 <script>
 import { useToast } from "vue-toastification";
+import { copyToClipboard } from "../util";
 
 import SiteTitle from "../components/SiteHeader.vue";
 import SiteFooter from "../components/SiteFooter.vue";
@@ -68,7 +69,7 @@ export default {
   },
   methods: {
     async copyLink(link) {
-      await window.navigator.clipboard.writeText(link);
+      await copyToClipboard(link);
       this.toast.success("Link was successfully copied to clipboard.");
     },
     saveQuery() {

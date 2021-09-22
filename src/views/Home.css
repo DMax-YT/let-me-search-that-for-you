@@ -113,7 +113,8 @@ body {
 }
 
 footer {
-  position: absolute;
+  position: relative;
+  margin: 10px 0;
   left: 0;
   right: 0;
   bottom: 0;
@@ -132,4 +133,27 @@ a:visited {
 
 a:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 749px) {
+  #search-input {
+    width: 80vw;
+    border: 2px #ccc solid;
+    border-radius: 15px;
+  }
+
+  #search-button {
+    border-right: 2px #ccc solid;
+    border-radius: 15px;
+    margin-top: 15px;
+  }
+
+  #search-engines {
+    flex-direction: column;
+  }
+
+  footer {
+    position: relative;
+    margin: 10px 0;
+  }
 }

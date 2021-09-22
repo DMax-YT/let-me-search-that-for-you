@@ -2,10 +2,7 @@
   <SearchCursor :cursor="cursorType" />
   <div id="search">
     <header id="logo">
-      <img
-        src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
-        alt="Google Logo"
-      />
+      <img :src="$options.GoogleLogo" alt="Google Logo" />
     </header>
     <form>
       <div id="search-form">
@@ -21,11 +18,14 @@
 
 <script>
 import { useToast } from "vue-toastification";
+import GoogleLogo from "../assets/Google_logo.svg";
 import SearchCursor from "../components/SearchCursor.vue";
 import GoogleSearchIcon from "../components/GoogleSearchIcon.vue";
 import { wait, moveTo } from "../util";
 
 export default {
+  GoogleLogo,
+
   data() {
     return {
       query: "",
@@ -97,9 +97,7 @@ export default {
     await wait(100);
     this.toast.info("You are being redirected to google.com");
     await wait(2100);
-    window.location.replace(
-      `https://google.com/search?q=${encodeURI(this.query)}`
-    );
+    window.location.replace(`https://google.com/search?q=${this.query}`);
   },
   methods: {
     async typeQuery() {

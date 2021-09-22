@@ -78,3 +78,18 @@ body {
   border: 1px solid #4285f4;
   outline: none;
 }
+
+@media (max-width: 749px) {
+  #search {
+    padding: 10px;
+  }
+
+  #search-form {
+    width: 80vw;
+  }
+
+  #search-form svg {
+    height: 44px;
+    width: 44px;
+  }
+}
