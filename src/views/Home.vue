@@ -34,22 +34,17 @@ import SiteTitle from "../components/SiteHeader.vue";
 import SiteFooter from "../components/SiteFooter.vue";
 import SearchPanel from "../components/SearchPanel.vue";
 
+import GoogleLogo from "../assets/Google_logo.svg";
+import YandexLogo from "../assets/Yandex_logo.svg";
+import DuckDuckGoLogo from "../assets/DuckDuckGo_logo.svg";
+
 export default {
   name: "Home",
 
   searchEngines: [
-    [
-      "google",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/400px-Google_2015_logo.svg.png",
-    ],
-    [
-      "yandex",
-      "https://yastatic.net/s3/home-static/_/n/M/pFHvdMV7_0kRsAw7bKuFiP0mY.svg",
-    ],
-    [
-      "duckduckgo",
-      "https://duckduckgo.com/assets/logo_homepage.normal.v108.svg",
-    ],
+    ["google", GoogleLogo],
+    ["yandex", YandexLogo],
+    ["duckduckgo", DuckDuckGoLogo],
   ],
 
   setup() {
