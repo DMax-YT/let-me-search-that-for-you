@@ -8,6 +8,7 @@
         id="search-input"
         v-model="query"
         placeholder="Type your query here"
+        autocomplete="off"
       />
       <button @click="saveQuery" id="search-button">Search</button>
     </div>
