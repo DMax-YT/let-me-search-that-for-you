@@ -7,7 +7,7 @@
     <form>
       <div id="search-form">
         <GoogleSearchIcon />
-        <input v-model="typing" ref="searchInput" />
+        <TypeAnimation :text="query" ref="typeInput" />
       </div>
 
       <button @click.prevent class="search-button" ref="searchButton">
@@ -24,6 +24,7 @@ import { useRoute } from "vue-router";
 import GoogleLogo from "../assets/Google_logo.svg";
 import SearchCursor from "../components/SearchCursor.vue";
 import GoogleSearchIcon from "../components/GoogleSearchIcon.vue";
+import TypeAnimation from "../components/TypeAnimation.vue";
 import { wait, moveTo } from "../util";
 
 export default {
@@ -32,13 +33,13 @@ export default {
   data() {
     return {
       query: "",
-      typing: "",
       cursorType: "default",
     };
   },
   components: {
     GoogleSearchIcon,
     SearchCursor,
+    TypeAnimation,
   },
   setup() {
     const route = useRoute();
@@ -57,7 +58,7 @@ export default {
     }
     this.query = query;
 
-    const { searchInput, searchButton } = this.$refs;
+    const { typeInput, searchButton } = this.$refs;
     const mouseQuery = "#mouse";
 
     await moveTo(mouseQuery, {
@@ -65,7 +66,7 @@ export default {
       top: 100,
     });
 
-    const searchInputPosition = searchInput.getBoundingClientRect();
+    const searchInputPosition = typeInput.getCoordinates();
     await moveTo(mouseQuery, {
       left: searchInputPosition.x,
       top: searchInputPosition.y + 10,
@@ -74,7 +75,7 @@ export default {
 
     this.cursorType = "beam";
     await wait(100);
-    searchInput.focus();
+    typeInput.focus();
 
     await moveTo(mouseQuery, {
       left: searchInputPosition.x + 20,
@@ -83,7 +84,7 @@ export default {
     });
 
     this.cursorType = "default";
-    await this.typeQuery();
+    await typeInput.animate();
     await wait(100);
 
     const searchButtonPos = searchButton.getBoundingClientRect();
@@ -100,17 +101,6 @@ export default {
     this.toast.info("You are being redirected to google.com");
     await wait(1600);
     window.location.replace(`https://google.com/search?q=${this.query}`);
-  },
-  methods: {
-    async typeQuery() {
-      const TYPE_DELAY = 150;
-      let i = 0;
-      while (i < this.query.length) {
-        this.typing += this.query.substr(i, 1);
-        await wait(TYPE_DELAY);
-        i += 1;
-      }
-    },
   },
 };
 </script>

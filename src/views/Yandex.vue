@@ -6,7 +6,7 @@
     </header>
     <form id="search-form">
       <div id="input-bg">
-        <input v-model="typing" ref="searchInput" />
+        <TypeAnimation :text="query" ref="typeInput" />
       </div>
       <button @click.prevent ref="searchButton">Search</button>
     </form>
@@ -18,6 +18,7 @@ import { useToast } from "vue-toastification";
 import { useRoute } from "vue-router";
 import YandexLogo from "../assets/Yandex_logo.svg";
 import SearchCursor from "../components/SearchCursor.vue";
+import TypeAnimation from "../components/TypeAnimation.vue";
 import { wait, moveTo } from "../util";
 
 export default {
@@ -26,12 +27,12 @@ export default {
   data() {
     return {
       query: "",
-      typing: "",
       cursorType: "default",
     };
   },
   components: {
     SearchCursor,
+    TypeAnimation,
   },
   setup() {
     const route = useRoute();
@@ -50,12 +51,12 @@ export default {
     }
     this.query = query;
 
-    const { searchInput, searchButton } = this.$refs;
+    const { typeInput, searchButton } = this.$refs;
     const mouseQuery = "#mouse";
 
     await moveTo(mouseQuery, { top: 100, left: 100 });
 
-    const searchInputPosition = searchInput.getBoundingClientRect();
+    const searchInputPosition = typeInput.getCoordinates();
     await moveTo(mouseQuery, {
       left: searchInputPosition.x + 20,
       top: searchInputPosition.y + 10,
@@ -64,7 +65,7 @@ export default {
 
     this.cursorType = "beam";
     await wait(100);
-    searchInput.focus();
+    typeInput.focus();
 
     await moveTo(mouseQuery, {
       left: searchInputPosition.x + 200,
@@ -73,7 +74,7 @@ export default {
     });
 
     this.cursorType = "default";
-    await this.typeQuery();
+    await typeInput.animate();
     await wait(100);
 
     const searchButtonPos = searchButton.getBoundingClientRect();
@@ -91,17 +92,6 @@ export default {
     this.toast.info("You are being redirected to yandex.com");
     await wait(1600);
     window.location.replace(`https://yandex.com/search/?text=${this.query}`);
-  },
-  methods: {
-    async typeQuery() {
-      const TYPE_DELAY = 150;
-      let i = 0;
-      while (i < this.query.length) {
-        this.typing += this.query.substr(i, 1);
-        await wait(TYPE_DELAY);
-        i += 1;
-      }
-    },
   },
 };
 </script>
