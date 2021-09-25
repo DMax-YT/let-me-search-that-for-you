@@ -1,24 +1,9 @@
-# let-me-search-that-for-you
+# Let me search that for you
 
-## Project setup
-```
-yarn install
-```
+Do you provide any help to people with their questions? Sometimes they can annoy you, does them? If yes, then I want to show you my "Let me search that for you" small service.
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+### How does it work?
 
-### Compiles and minifies for production
-```
-yarn build
-```
+Someone asks you about one question, that can be easily found in [Google](https://google.com/), [Yandex](https://yandex.com/) or [DuckDuckGo](https://fuckfuckgoogle.com/). You understand, that user didn't search anything about the question and you want to mock them. So just type their question in search input, press "Enter", copy link for one of provided search services and then give it to them. Done!
 
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+P.S. When you want to type another question, don't forget to press "Enter", because links are "cached".
