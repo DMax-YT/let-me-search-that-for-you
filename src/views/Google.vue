@@ -2,7 +2,7 @@
   <SearchCursor :cursor="cursorType" />
   <div id="search">
     <header id="logo">
-      <img :src="$options.GoogleLogo" alt="Google Logo" />
+      <img src="../assets/Google_logo.svg" alt="Google Logo" />
     </header>
     <form>
       <div id="search-form">
@@ -21,15 +21,12 @@
 <script>
 import { useToast } from "vue-toastification";
 import { useRoute } from "vue-router";
-import GoogleLogo from "../assets/Google_logo.svg";
 import SearchCursor from "../components/SearchCursor.vue";
 import GoogleSearchIcon from "../components/GoogleSearchIcon.vue";
 import TypeAnimation from "../components/TypeAnimation.vue";
 import { wait, moveTo } from "../util";
 
 export default {
-  GoogleLogo,
-
   data() {
     return {
       query: "",

@@ -2,7 +2,7 @@
   <SearchCursor :cursor="cursorType" />
   <div id="search">
     <header id="logo">
-      <img :src="$options.YandexLogo" alt="Yandex Logo" />
+      <img src="../assets/Yandex_logo.svg" alt="Yandex Logo" />
     </header>
     <form id="search-form">
       <div id="input-bg">
@@ -16,14 +16,11 @@
 <script>
 import { useToast } from "vue-toastification";
 import { useRoute } from "vue-router";
-import YandexLogo from "../assets/Yandex_logo.svg";
 import SearchCursor from "../components/SearchCursor.vue";
 import TypeAnimation from "../components/TypeAnimation.vue";
 import { wait, moveTo } from "../util";
 
 export default {
-  YandexLogo,
-
   data() {
     return {
       query: "",
