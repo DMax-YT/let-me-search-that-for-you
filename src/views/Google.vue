@@ -53,7 +53,7 @@ export default {
     if (!query) {
       this.$router.replace({ path: "/" });
     }
-    this.query = query;
+    this.query = decodeURIComponent(query);
 
     const { typeInput, searchButton } = this.$refs;
     const mouseQuery = "#mouse";
@@ -97,7 +97,7 @@ export default {
     await wait(100);
     this.toast.info("You are being redirected to google.com");
     await wait(1600);
-    window.location.replace(`https://google.com/search?q=${this.query}`);
+    window.location.replace(`https://google.com/search?q=${query}`);
   },
 };
 </script>

@@ -48,7 +48,7 @@ export default {
     if (!query) {
       this.$router.replace({ path: "/" });
     }
-    this.query = query;
+    this.query = decodeURIComponent(query);
 
     const { typeInput, searchButton } = this.$refs;
     const mouseQuery = "#mouse";
@@ -90,7 +90,7 @@ export default {
     await wait(100);
     this.toast.info("You are being redirected to fuckfuckgoogle.com");
     await wait(1600);
-    window.location.replace(`https://duckduckgo.com/?q=${this.query}`);
+    window.location.replace(`https://duckduckgo.com/?q=${query}`);
   },
 };
 </script>

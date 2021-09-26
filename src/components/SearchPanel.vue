@@ -28,7 +28,7 @@ export default {
 
   methods: {
     generateLink() {
-      const encodedQuery = encodeURI(this.query);
+      const encodedQuery = encodeURIComponent(this.query);
       const link = `${window.location.href}${this.searchEngine}?q=${encodedQuery}`;
       this.$emit("generateLink", link);
     },
